@@ -1,0 +1,30 @@
+<openerp>
+<data>
+    <report
+        id="report_amal"
+        model="hr.mutabaah"
+        string="Amal Report"
+        name="hr_mutabaah.report_amal_view"
+        file="hr_mutabaah.report_amal"
+        report_type="qweb-pdf" />
+
+    <template id="report_amal_view">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>Laporan Amalan Yaumiyyah</h2>
+                    </div>
+                        <p>Tanggal <span t-field="o.name"/></p>
+                        <h3>Amal:</h3>
+                        <div class="col-xs-3" t-if="o.shubuh">
+                    <strong>Subuh:</strong>
+                    <p t-field="o.shubuh"/>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</data>
+</openerp>

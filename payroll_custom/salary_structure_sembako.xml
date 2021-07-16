@@ -1,0 +1,37 @@
+<openerp>
+	<data>
+
+		<!--Allowance-->
+		<record id="hr_rule_sembako" model="hr.salary.rule">
+            <field name="name">Sembako</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">SEMBAKO</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = ((150000/worked_days.WORK100.number_of_days)*worked_days.PRESENCES.number_of_days)*payslip.sembako</field>
+        </record>
+
+         <record id="hr_rule_makan" model="hr.salary.rule">
+            <field name="name">Makan</field>
+            <field name="sequence">20</field>
+            <field name="code">MAKAN</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="condition_python">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = 100000</field>
+        </record>
+
+        <record model="hr.payroll.structure" id="structure_DPUDT_SEMBAKO" >
+            <field name="name">DPUDT SEMBAKO</field>
+            <field name="code">DPUSM</field>
+            <field name="parent_id" ref="hr_payroll.structure_base"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field eval="[(6, 0, [ref('hr_rule_sembako'),
+                ref('hr_rule_makan')
+             ])]" name="rule_ids"/>
+        </record>
+
+    </data>
+</openerp>

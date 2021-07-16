@@ -1,0 +1,564 @@
+<openerp>
+    <data>
+
+        <!--Allowance-->
+        <record id="hr_rule_basic" model="hr.salary.rule">
+            <field name="name">Basic</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">BASIC</field>
+            <field name="category_id" ref="hr_payroll.GROSS"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = payslip.bonus</field>
+        </record>
+
+         <record id="hr_rule_tunj_jabatan" model="hr.salary.rule">
+            <field name="name">Bea Pokok</field>
+            <field name="sequence">20</field>
+            <field name="code">BP</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.jenis_tunjangan.tunj_jabatan > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.jenis_tunjangan.tunj_jabatan</field>
+        </record>
+
+        <record id="hr_rule_tunj_istri" model="hr.salary.rule">
+            <field name="name">Tunjangan Istri</field>
+            <field name="sequence">30</field>
+            <field name="code">TI</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.tunj_istri*employee.jml_istri > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.tunj_istri*employee.jml_istri</field>
+        </record>
+
+        <record id="hr_rule_tunj_anak" model="hr.salary.rule">
+            <field name="name">Tunjangan Balita</field>
+            <field name="sequence">40</field>
+            <field name="code">BALITA</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.tunj_balita*employee.children > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.tunj_balita*employee.children</field>
+        </record>
+
+        <record id="hr_rule_tunj_tk" model="hr.salary.rule">
+            <field name="name">Tunjangan TK</field>
+            <field name="sequence">50</field>
+            <field name="code">TK</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.tunj_tk*employee.jml_tk > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.tunj_tk*employee.jml_tk</field>
+        </record>
+
+        <record id="hr_rule_tunj_sd" model="hr.salary.rule">
+            <field name="name">Tunjangan SD</field>
+            <field name="sequence">60</field>
+            <field name="code">SD</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.tunj_sd*employee.jml_sd > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.tunj_sd*employee.jml_sd</field>
+        </record>
+
+        <record id="hr_rule_tunj_smp" model="hr.salary.rule">
+            <field name="name">Tunjangan SMP</field>
+            <field name="sequence">70</field>
+            <field name="code">SMP</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.tunj_smp*employee.jml_smp > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.tunj_smp*employee.jml_smp</field>
+        </record>
+
+        <record id="hr_rule_tunj_sma" model="hr.salary.rule">
+            <field name="name">Tunjangan SMA</field>
+            <field name="sequence">80</field>
+            <field name="code">SMA</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.tunj_sma*employee.jml_sma > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.tunj_sma*employee.jml_sma</field>
+        </record>
+
+        <record id="hr_rule_tunj_pt" model="hr.salary.rule">
+            <field name="name">Tunjangan PT</field>
+            <field name="sequence">90</field>
+            <field name="code">PT</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.tunj_pt*employee.jml_pt > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.tunj_pt*employee.jml_pt</field>
+        </record>        
+
+        <record id="hr_rule_tunj_makan" model="hr.salary.rule">
+            <field name="name">Tunjangan Makan</field>
+            <field name="sequence">100</field>
+            <field name="code">TJM</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.tunj_makan*worked_days.PRESENCES.number_of_days > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.tunj_makan*worked_days.PRESENCES.number_of_days</field>
+        </record>
+
+        <record id="hr_rule_tunj_transport" model="hr.salary.rule">
+            <field name="name">Tunjangan transport</field>
+            <field name="sequence">110</field>
+            <field name="code">TJT</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.tunj_transport*worked_days.PRESENCES.number_of_days > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.tunj_transport*worked_days.PRESENCES.number_of_days</field>
+        </record>
+
+        <record id="hr_rule_tunj_bpjs" model="hr.salary.rule">
+            <field name="name">Tunjangan BPJS</field>
+            <field name="sequence">120</field>
+            <field name="code">TBPJS</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.tunj_bpjs > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = payslip.tunj_bpjs</field>
+        </record>
+
+        <record id="hr_rule_tunj_komp" model="hr.salary.rule">
+            <field name="name">Tunjangan Kompetensi</field>
+            <field name="sequence">130</field>
+            <field name="code">TKO</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.tunj_komp > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = payslip.tunj_komp</field>
+        </record>
+
+        <record id="hr_rule_tunj_tugas" model="hr.salary.rule">
+            <field name="name">Tunjangan Penugasan</field>
+            <field name="sequence">131</field>
+            <field name="code">TPU</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.tunj_penugasan > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.tunj_penugasan</field>
+        </record>
+
+        <record id="hr_rule_voucher" model="hr.salary.rule">
+            <field name="name">Voucher</field>
+            <field name="sequence">132</field>
+            <field name="code">TV</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.TV.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.TV.amount</field>
+        </record>
+
+        <record id="hr_rule_sembako" model="hr.salary.rule">
+            <field name="name">Sembako</field>
+            <field name="sequence">133</field>
+            <field name="code">TSK</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.sembako > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = payslip.sembako</field>
+        </record>
+
+        <record id="hr_rule_tunj_penye" model="hr.salary.rule">
+            <field name="name">Tunjangan Penyesuaian</field>
+            <field name="sequence">140</field>
+            <field name="code">TJP</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.TJP.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.TJP.amount</field>
+        </record>
+
+        <record id="hr_rule_tunj_mahal" model="hr.salary.rule">
+            <field name="name">Tunjangan Kemahalan</field>
+            <field name="sequence">150</field>
+            <field name="code">TKM</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.TKM.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.TKM.amount</field>
+        </record>
+
+         <record id="hr_rule_min_bl" model="hr.salary.rule">
+            <field name="name">Kekurangan Bulan lalu</field>
+            <field name="sequence">160</field>
+            <field name="code">KBL</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.KBL.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.KBL.amount</field>
+        </record>
+
+        <record id="hr_payroll_rules_overtime" model="hr.salary.rule">
+            <field name="name">OVERTIME</field>
+            <field name="sequence">170</field>
+            <field name="code">OVERTIME</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = (worked_days.LEMBUR.number_of_hours/173)*contract.wage > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = (worked_days.LEMBUR.number_of_hours/173)*contract.wage </field>
+        </record>
+
+        <record id="hr_rule_tunj_disiplin" model="hr.salary.rule">
+            <field name="name">Tunjangan Kedisiplinan</field>
+            <field name="sequence">180</field>
+            <field name="code">TKD</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.TKD.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.TKD.amount</field>
+        </record>
+
+        <record id="hr_rule_tunj_pensiun" model="hr.salary.rule">
+            <field name="name">Tunjangan Pensiun</field>
+            <field name="sequence">190</field>
+            <field name="code">TPN</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.tunj_pensiun > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = payslip.tunj_pensiun</field>
+        </record>
+
+
+
+        <!--deduction-->
+
+        <record id="hr_payroll_rules_pot_dpu" model="hr.salary.rule">
+            <field name="name">Potongan DPU</field>
+            <field name="code">PDPU</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.PDPU.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1105</field>
+            <field name="amount_python_compute">result = inputs.PDPU.amount </field>
+        </record>
+
+        <record id="hr_payroll_rules_iuran_kes" model="hr.salary.rule">
+            <field name="name">Iuran Kesehatan</field>
+            <field name="code">IK</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.iuran_kes > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1106</field>
+            <field name="amount_python_compute">result = payslip.iuran_kes </field>
+        </record>
+
+        <record id="hr_payroll_rules_iuran_jams" model="hr.salary.rule">
+            <field name="name">Iuran Jamsostek</field>
+            <field name="code">PIJ</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.iuran_jams > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1107</field>
+            <field name="amount_python_compute">result = payslip.iuran_jams </field>
+        </record>
+
+        <record id="hr_payroll_rules_pot_terlambat1" model="hr.salary.rule">
+            <field name="name">Pot Keterlambatan 0-15mnt</field>
+            <field name="code">PK1</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.KETERLAMBATAN1.number_of_days*6867 > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1108</field>
+            <field name="amount_python_compute">result = worked_days.KETERLAMBATAN1.number_of_days*6867 </field>
+        </record>
+
+        <record id="hr_payroll_rules_pot_terlambat2" model="hr.salary.rule">
+            <field name="name">Pot Keterlambatan 15-60mnt</field>
+            <field name="code">PK2</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.KETERLAMBATAN2.number_of_days*13734 > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1109</field>
+            <field name="amount_python_compute">result = worked_days.KETERLAMBATAN2.number_of_days*13734 </field>
+        </record>
+
+        <record id="hr_payroll_rules_pot_terlambat3" model="hr.salary.rule">
+            <field name="name">Pot Keterlambatan 60-3jam</field>
+            <field name="code">PK3</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.KETERLAMBATAN3.number_of_days*22890 > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1110</field>
+            <field name="amount_python_compute">result = worked_days.KETERLAMBATAN3.number_of_days*22890 </field>
+        </record>
+
+        <record id="hr_payroll_rules_pot_terlambat4" model="hr.salary.rule">
+            <field name="name">Pot Keterlambatan >3jam</field>
+            <field name="code">PK4</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.KETERLAMBATAN4.number_of_days*45780 > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1111</field>
+            <field name="amount_python_compute">result = worked_days.KETERLAMBATAN4.number_of_days*45780 </field>
+        </record>
+
+        <record id="hr_payroll_rules_pot_pensiun" model="hr.salary.rule">
+            <field name="name">Potongan Pensiun</field>
+            <field name="code">PPN</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.pot_pensiun > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1112</field>
+            <field name="amount_python_compute">result = payslip.pot_pensiun </field>
+        </record>
+
+        <record id="hr_payroll_rules_koperasi" model="hr.salary.rule">
+            <field name="name">Koperasi</field>
+            <field name="code">PIK</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.pot_koperasi > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1113</field>
+            <field name="amount_python_compute">result = contract.pot_koperasi </field>
+        </record>
+
+        <record id="hr_payroll_rules_zis" model="hr.salary.rule">
+            <field name="name">ZIS</field>
+            <field name="code">PZ</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.zis > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1114</field>
+            <field name="amount_python_compute">result = payslip.zis </field>
+        </record>
+
+        <record id="hr_payroll_rules_wakaf" model="hr.salary.rule">
+            <field name="name">Wakaf</field>
+            <field name="code">PW</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.PW.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1115</field>
+            <field name="amount_python_compute">result = inputs.PW.amount </field>
+        </record>
+
+        <record id="hr_payroll_rules_pot_ars" model="hr.salary.rule">
+            <field name="name">Potongan Arisan</field>
+            <field name="code">PA</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.pot_arisan > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1116</field>
+            <field name="amount_python_compute">result = contract.pot_arisan</field>
+        </record>
+
+        <record id="hr_payroll_rules_pen_ali" model="hr.salary.rule">
+            <field name="name">Potongan Pensiun dan Alianz </field>
+            <field name="code">PPA</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.PPA.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1117</field>
+            <field name="amount_python_compute">result = inputs.PPA.amount </field>
+        </record>
+
+        <record id="hr_payroll_rules_qurban" model="hr.salary.rule">
+            <field name="name">Potongan Qurban</field>
+            <field name="code">PQ</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.PQ.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1118</field>
+            <field name="amount_python_compute">result = inputs.PQ.amount </field>
+        </record>
+
+        <record id="hr_payroll_rules_parkir" model="hr.salary.rule">
+            <field name="name">Potongan Parkir</field>
+            <field name="code">PP</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.pot_parkir > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1119</field>
+            <field name="amount_python_compute">result = contract.pot_parkir </field>
+        </record>
+
+        <record id="hr_payroll_rules_pot_lain" model="hr.salary.rule">
+            <field name="name">Potongan Lain-Lain</field>
+            <field name="code">PLL</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.PLL.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1120</field>
+            <field name="amount_python_compute">result = inputs.PLL.amount </field>
+        </record>
+
+        <record id="hr_payroll_rules_lain_lain" model="hr.salary.rule">
+            <field name="name">Potongan Lain-Lain 2</field>
+            <field name="code">PL2</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.PL2.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="sequence">1121</field>
+            <field name="amount_python_compute">result = inputs.PL2.amount </field>
+        </record>
+
+<!-- other input-->
+
+        <record id="hr_payroll_rules_input_tunj_penye" model="hr.rule.input">
+            <field name="name">Tunjangan Penyesuaian</field>
+            <field name="code">TJP</field>
+            <field name="sequence">20</field>   
+            <field name="input_id" ref="hr_rule_tunj_penye"/>          
+        </record>
+
+        <record id="hr_payroll_rules_input_tunj_vouch" model="hr.rule.input">
+            <field name="name">Tunjangan Voucher</field>
+            <field name="code">TV</field>
+            <field name="sequence">20</field>   
+            <field name="input_id" ref="hr_rule_voucher"/>          
+        </record>
+
+        <record id="hr_payroll_rules_input_tunj_mahal" model="hr.rule.input">
+            <field name="name">Tunjangan Kemahalan</field>
+            <field name="code">TKM</field>
+            <field name="sequence">30</field>   
+            <field name="input_id" ref="hr_rule_tunj_mahal"/>          
+        </record>
+
+        <record id="hr_payroll_rules_input_min_bl" model="hr.rule.input">
+            <field name="name">Kekurangan Bulan Lalu</field>
+            <field name="code">KBL</field>
+            <field name="sequence">40</field>   
+            <field name="input_id" ref="hr_rule_min_bl"/>          
+        </record>
+
+        <record id="hr_payroll_rules_input_tunj_disiplin" model="hr.rule.input">
+            <field name="name">Tunjangan Kedisiplinan</field>
+            <field name="code">TKD</field>
+            <field name="sequence">50</field>   
+            <field name="input_id" ref="hr_rule_tunj_disiplin"/>          
+        </record>
+
+        <record id="hr_payroll_rules_input_pot_dpu" model="hr.rule.input">
+            <field name="name">Potongan DPU</field>
+            <field name="code">PDPU</field>
+            <field name="sequence">133</field>   
+            <field name="input_id" ref="hr_payroll_rules_pot_dpu"/>          
+        </record>
+
+        <record id="hr_payroll_rules_input_wakaf" model="hr.rule.input">
+            <field name="name">Wakaf</field>
+            <field name="code">PW</field>
+            <field name="sequence">139</field>   
+            <field name="input_id" ref="hr_payroll_rules_wakaf"/>          
+        </record>
+
+        <record id="hr_payroll_rules_input_pen_ali" model="hr.rule.input">
+            <field name="name">Potongan Pensiun dan Alianz</field>
+            <field name="code">PPA</field>
+            <field name="sequence">141</field>   
+            <field name="input_id" ref="hr_payroll_rules_pen_ali"/>          
+        </record>
+
+        <record id="hr_payroll_rules_input_qurban" model="hr.rule.input">
+            <field name="name">Potongan Qurban</field>
+            <field name="code">PQ</field>
+            <field name="sequence">142</field>   
+            <field name="input_id" ref="hr_payroll_rules_qurban"/>          
+        </record>
+
+        <record id="hr_payroll_rules_input_pot_lain" model="hr.rule.input">
+            <field name="name">Potongan Lain-Lain</field>
+            <field name="code">PLL</field>
+            <field name="sequence">144</field>   
+            <field name="input_id" ref="hr_payroll_rules_pot_lain"/>        
+        </record>
+
+        <record id="hr_payroll_rules_input_lain_lain" model="hr.rule.input">
+            <field name="name">Potongan Lain-Lain 2</field>
+            <field name="code">PL2</field>
+            <field name="sequence">145</field>   
+            <field name="input_id" ref="hr_payroll_rules_lain_lain"/>        
+        </record>
+
+        <record model="hr.payroll.structure" id="structure_DPUDT" >
+            <field name="name">DPUDT Salary Structure</field>
+            <field name="code">DPUDT</field>
+            <field name="parent_id" ref="hr_payroll.structure_base"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field eval="[(6, 0, [ref('hr_rule_basic'),
+                ref('hr_rule_tunj_jabatan'),
+                ref('hr_rule_tunj_anak'),
+                ref('hr_rule_tunj_sd'),
+                ref('hr_rule_tunj_tk'),
+                ref('hr_rule_tunj_smp'),
+                ref('hr_rule_tunj_sma'),
+                ref('hr_rule_tunj_pt'),
+                ref('hr_rule_tunj_istri'),
+                ref('hr_rule_tunj_bpjs'),
+                ref('hr_rule_tunj_makan'),
+                ref('hr_rule_tunj_transport'),
+                ref('hr_rule_tunj_komp'),
+                ref('hr_rule_tunj_penye'),
+                ref('hr_rule_tunj_mahal'),
+                ref('hr_rule_tunj_tugas'),
+                ref('hr_rule_voucher'),
+                ref('hr_rule_sembako'),
+                ref('hr_rule_min_bl'),
+                ref('hr_payroll_rules_overtime'),
+                ref('hr_rule_tunj_disiplin'),
+                ref('hr_rule_tunj_pensiun'),
+                ref('hr_payroll_rules_pot_dpu'),
+                ref('hr_payroll_rules_iuran_kes'),
+                ref('hr_payroll_rules_iuran_jams'),
+                ref('hr_payroll_rules_pot_terlambat1'),
+                ref('hr_payroll_rules_pot_terlambat2'),
+                ref('hr_payroll_rules_pot_terlambat3'),
+                ref('hr_payroll_rules_pot_terlambat4'),
+                ref('hr_payroll_rules_wakaf'),
+                ref('hr_payroll_rules_zis'),
+                ref('hr_payroll_rules_koperasi'),
+                ref('hr_payroll_rules_pen_ali'),
+                ref('hr_payroll_rules_pot_ars'),
+                ref('hr_payroll_rules_qurban'),
+                ref('hr_payroll_rules_parkir'),
+                ref('hr_payroll_rules_pot_lain'),
+                ref('hr_payroll_rules_lain_lain'),
+                ref('hr_payroll_rules_pot_pensiun')
+             ])]" name="rule_ids"/>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,82 @@
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="voucher_tree">
+            <field name="name">Form Voucher</field>
+            <field name="model">hr.vouchers</field>
+            <field name="arch" type="xml">
+                <tree string="Form Voucher">
+                    <field name="employee_id"/>
+                    <field name="bagian"/>
+                    <field name="tgl_penilaian"/>
+                    <field name="periode"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="voucher_form">
+            <field name="name">Form Voucher</field>
+            <field name="model">hr.vouchers</field>
+            <field name="arch" type="xml">
+                <form string="Form Voucher">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="penilai"/>
+                                <field name="employee_id"/>
+                                <field name="bagian"/>
+                                <field name="status"/>
+                                <field name="tgl_penilaian"/>
+                                <field name="periode"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Details">
+                                <group>
+                                    <group string="Hasil Kerja">
+                                        <field name="mutu_kerja"/>
+                                        <field name="pengetahuan_teknis"/>
+                                        <field name="produktivitas_kerja"/>
+                                        <field name="tanggung_jawab"/>
+                                        <field name="tot_hasil_kerja"/>
+                                    </group>
+                                    <group string="Ketrampilan Management">
+                                        <field name="kepemimpinan"/>
+                                        <field name="plan"/>
+                                        <field name="pemecah_masalah"/>
+                                        <field name="pendelegasian"/>
+                                        <field name="tot_hasil_keterampilan"/>
+                                    </group>
+                                    <group string="Kepribadian">
+                                        <field name="disiplin"/>
+                                        <field name="kerjasama"/>
+                                        <field name="sikap_kerja"/>
+                                        <field name="sikap_proaktif"/>
+                                        <field name="tanggung_jawab"/>
+                                        <field name="mutu_kerja"/>
+                                        <field name="adaptasi"/>
+                                        <field name="kestabilan"/>
+                                        <field name="sikapthd"/>
+                                        <field name="kekuatan"/>
+                                        <field name="tot_hasil_kepribadian"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>    
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_voucher" model="ir.actions.act_window">
+            <field name="name">Voucher</field>
+            <field name="res_model">hr.vouchers</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_voucher" name="Voucher" parent="hr_payroll.menu_hr_root_payroll" action="action_voucher"/>
+
+    </data>
+</openerp>

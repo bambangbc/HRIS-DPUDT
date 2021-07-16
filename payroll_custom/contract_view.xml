@@ -1,0 +1,108 @@
+<openerp>
+    <data>
+
+        <record id="hr_contract_tunjangan_form" model="ir.ui.view">
+            <field name="name">hr.contract_tunjagan.view.form</field>
+            <field name="model">hr.contract_tunjangan</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Grade">
+                    <group>
+                        <field name="name"/>
+                        <field name="tunj_jabatan"/>
+                        <field name="tunj_kompetensi"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="hr_contract_view_form2" model="ir.ui.view">
+            <field name="name">hr.contract.view.form</field>
+            <field name="model">hr.contract</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                
+                <field name="wage" position="after">
+                    <field name="jenis_tunjangan"/>
+                </field>
+
+                <page string="Information" name="information" position="after">
+                    <page string="Tunjangan Khusus" name="tunjangan_khusus">
+                        <group>
+                            <field name="tunj_istri"/>
+                            <field name="tunj_balita"/>
+                            <field name="tunj_tk"/>
+                            <field name="tunj_sd"/>
+                            <field name="tunj_smp"/>
+                            <field name="tunj_sma"/>
+                            <field name="tunj_pt"/>
+                            <field name="tunj_makan"/>
+                            <field name="tunj_transport"/>
+                            <field name="lokasi_kerja"/> 
+                        </group>
+                    </page>
+                    <page string="Tunjangan Di Luar Gaji" name="tunjangan_diluar">
+                        <group>
+                            <field name="tunj_cabang"/>
+                            <field name="tunj_penugasan"/>
+                            <field name="tunj_v_belanja"/>
+                        </group>
+                    </page>
+                    <page string="Potongan" name="potongan">
+                        <group>
+                            <field name="pot_kesehatan"/>
+                            <field name="pot_jamsostek"/>
+                            <field name="pot_koperasi"/>
+                            <field name="pot_arisan"/>
+                            <field name="pot_parkir"/>
+                            <field name="pot_wakaf"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="grade_form_view" model="ir.ui.view">
+            <field name="name">Master Grade</field>
+            <field name="model">hr.contract_tunjangan</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="grade" editable="bottom">
+                    <field name="name"/>
+                    <field name="tunj_jabatan"/>
+                    <field name="tunj_kompetensi"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_grade">
+            <field name="name">Master Grade</field>
+            <field name="res_model">hr.contract_tunjangan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="contract_type_view" model="ir.ui.view">
+            <field name="name">Master Kontrak Type</field>
+            <field name="model">hr.contract.type</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_type_view_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                    <group>
+                        <field name="name"/>
+                        <field name="bpjskes_karyawan"/>
+                        <field name="bpjskes_perusahaan"/>
+                        <field name="bpjsten_karyawan"/>
+                        <field name="bpjsten_perusahaan"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+
+        
+        <menuitem action="action_grade" parent="base.menu_tools" name="Master Grade" id="grade"/>
+
+    </data>
+</openerp>

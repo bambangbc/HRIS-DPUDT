@@ -1,0 +1,177 @@
+<openerp>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="hr_mutabaah.detail_form">
+            <field name="name">Daftar Mutabaah Per Pegawai</field>
+            <field name="model">hr.mutabaah.detail</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="hr_mutabaah_id"/>
+                            <field name="name"/>
+                            <field name="shubuh"/>
+                            <field name="zuhur"/>
+                            <field name="ashar"/>
+                            <field name="maghrib"/>
+                            <field name="isya"/>
+
+                            <field name="tahajjud"/>
+                            <field name="dzikirpagi"/>
+                            <field name="dzikirsore"/>
+                            <field name="dhuha"/>
+                            <field name="tilawah"/>
+
+                            <field name="shaum"/>
+                            <field name="itikaf"/>
+                            <field name="infaq"/>
+                            <field name="kajianpagi"/>
+                            <field name="bina"/>
+                            <field name="MQ"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- <record model="ir.ui.view" id="hr_mutabaah.detail_pivot">
+            <field name="name">hr.mutabaah.graph</field>
+            <field name="model">hr.mutabaah.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Mutabaah by Pegawai">
+                    <field name="hr_mutabaah_id"/>
+                    <field name="name" interval="week"/>
+                    <field name="subuh_count" type="measure"/>
+                    <field name="zuhur_count" type="measure"/>
+                    <field name="ashar_count" type="measure"/>
+                    <field name="maghrib_count" type="measure"/>
+                    <field name="isya_count" type="measure"/>
+                    <field name="tilawah"/>
+                </pivot>
+            </field>
+        </record> -->
+
+        <record model="ir.ui.view" id="hr_mutabaah.detail_graph">
+            <field name="name">hr.mutabaah.graph</field>
+            <field name="model">hr.mutabaah.report</field>
+            <field name="arch" type="xml">
+                <graph string="Mutabaah by Pegawai">
+                    <field name="hr_mutabaah_id"/>
+                    <field name="name" interval="week"/>
+                    <field name="subuh_count" type="measure"/>
+                    <field name="zuhur_count" type="measure"/>
+                    <field name="ashar_count" type="measure"/>
+                    <field name="maghrib_count" type="measure"/>
+                    <field name="isya_count" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_mutabaah.form">
+            <field name="name">Daftar Mutabaah</field>
+            <field name="model">hr.mutabaah</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Mutabaah">
+                                    <field name="mutabaah_detail_ids">
+                                        <tree>
+                                            <field name="name"/>
+                                            <field name="shubuh"/>
+                                            <field name="zuhur"/>
+                                            <field name="ashar"/>
+                                            <field name="maghrib"/>
+                                            <field name="isya"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_mutabaah.list">
+            <field name="name">Daftar Mutabaah</field>
+            <field name="model">hr.mutabaah</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- <record model="ir.ui.view" id="hr_mutabaah.pivot">
+            <field name="name">hr.mutabaah.graph</field>
+            <field name="model">hr.mutabaah</field>
+            <field name="arch" type="xml">
+                <pivot string="Mutabaah by Pegawai">
+                    <field name="name"/>
+                    <field name="subuh_count" type="measure"/>
+                    <field name="zuhur_count" type="measure"/>
+                    <field name="ashar_count" type="measure"/>
+                    <field name="maghrib_count" type="measure"/>
+                    <field name="isya_count" type="measure"/>
+                </pivot>
+            </field>
+        </record> -->
+
+        <record model="ir.ui.view" id="hr_mutabaah.graph">
+            <field name="name">hr.mutabaah.graph</field>
+            <field name="model">hr.mutabaah</field>
+            <field name="arch" type="xml">
+                <graph string="Mutabaah by Pegawai">
+                    <field name="name"/>
+                    <field name="subuh_count" type="measure"/>
+                    <field name="zuhur_count" type="measure"/>
+                    <field name="ashar_count" type="measure"/>
+                    <field name="maghrib_count" type="measure"/>
+                    <field name="isya_count" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="hr_mutabaah.action_window">
+            <field name="name">Mutabaah Pegawai</field>
+            <field name="res_model">hr.mutabaah</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="hr_mutabaah.mutabaah_detail_action_window">
+            <field name="name">Mutabaah Pegawai</field>
+            <field name="res_model">hr.mutabaah.report</field>
+            <field name="view_mode">graph</field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="Mutabaah"
+                  id="mutabaah_menu"
+                  parent="hr.menu_hr_root"/>
+        <menuitem name="Mutabaah Yaumiyah"
+                  id="menu_yaumiyah"
+                  parent="mutabaah_menu"
+                  action="hr_mutabaah.action_window"
+                  sequence="2"/>
+        <menuitem name="Mutabaah Per Minggu"
+                  id="mutabaah_detail_menu"
+                  parent="mutabaah_menu"
+                  action="hr_mutabaah.mutabaah_detail_action_window"
+                  sequence="3"/>
+        <menuitem action="hr_mutabaah.mutabaah_detail_action_window"
+                  id="menu_hr_mutabaah_report_all"
+                  parent="hr.menu_hr_reporting"
+                  sequence="4"/>
+
+    </data>
+</openerp>

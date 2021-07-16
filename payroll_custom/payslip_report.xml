@@ -1,0 +1,12 @@
+<openerp>
+    <data>
+		<report id="payslip_report_dpu" 
+			 string="Pay Slip DPUDT" 
+			 model="hr.payslip" 
+			 name="payslipdpu_report" 
+			 rml="addons/hrd_payroll/report/payslip_dpu.rml" 
+			 header="False"
+		/>
+    </data>
+</openerp>
+

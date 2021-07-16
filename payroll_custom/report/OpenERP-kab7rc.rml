@@ -1,0 +1,890 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(595.0,842.0)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="57.0" y1="57.0" width="481" height="728"/>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table1">
+      <blockTopPadding value="0"/>
+      <blockBottomPadding value="0"/>
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="16,-1" stop="16,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <blockBackground colorName="#ffffff" start="1,1" stop="1,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table2">
+      <blockTopPadding value="0"/>
+      <blockBottomPadding value="0"/>
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <blockBackground colorName="#ffffff" start="1,0" stop="1,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table5">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table3">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table4">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table6">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table7">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table8">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table9">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table11">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify"/>
+    </initialize>
+    <paraStyle name="P1" fontName="Helvetica" fontSize="11.0" leading="14"/>
+    <paraStyle name="P2" fontName="Helvetica" fontSize="10.0" leading="13"/>
+    <paraStyle name="P3" fontName="Helvetica" fontSize="10.0" leading="13" alignment="CENTER"/>
+    <paraStyle name="P4" fontName="Helvetica" fontSize="10.0" leading="13" alignment="CENTER"/>
+    <paraStyle name="P5" fontName="Helvetica-Bold" fontSize="9.0" leading="11"/>
+    <paraStyle name="P6" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="RIGHT"/>
+    <paraStyle name="P7" fontName="Helvetica-Bold" fontSize="9.0" leading="11"/>
+    <paraStyle name="P8" fontName="Helvetica" fontSize="9.0" leading="11"/>
+    <paraStyle name="P9" fontName="Helvetica" textColor="#ffffff"/>
+    <paraStyle name="P10" fontName="Helvetica-Bold" fontSize="10.0" leading="13" textColor="#ffffff"/>
+    <paraStyle name="P11" fontName="Helvetica" fontSize="10.0" leading="13" textColor="#ffffff"/>
+    <paraStyle name="P12" fontName="Helvetica" fontSize="11.0" leading="14"/>
+    <paraStyle name="P13" fontName="Helvetica" textColor="#000000"/>
+    <paraStyle name="P14" fontName="Helvetica-Bold" fontSize="10.0" leading="13" textColor="#000000"/>
+    <paraStyle name="P15" fontName="Helvetica-Bold" fontSize="10.0" leading="13" alignment="RIGHT" textColor="#000000"/>
+    <paraStyle name="P16" fontName="Helvetica" fontSize="10.0" leading="13"/>
+    <paraStyle name="P17" fontName="Helvetica" fontSize="9.0" leading="11"/>
+    <paraStyle name="P18" fontName="Helvetica" fontSize="9.0" leading="11"/>
+    <paraStyle name="Standard" fontName="Helvetica"/>
+    <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="Text_20_body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Caption" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Helvetica"/>
+    <paraStyle name="Table_20_Contents" fontName="Helvetica"/>
+    <paraStyle name="Table_20_Heading" fontName="Helvetica" alignment="CENTER"/>
+    <images>
+      <image name="100000000000009A000000DC34A811A205C4F616.jpg">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
+RgwYMEQcJzhQcJzgi//Z
+</image>
+    </images>
+  </stylesheet>
+  <story>
+    <blockTable colWidths="482.0" style="Table1">
+      <tr>
+        <td>
+          <blockTable colWidths="168.0,298.0" style="Table2">
+            <tr>
+              <td>
+                <illustration height="71.0" width="103.0">
+                  <image x="0" y="0" file="100000000000009A000000DC34A811A205C4F616.jpg" height="71.0" width="103.0"/>
+                </illustration>
+              </td>
+              <td>
+                <para style="P9">Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</para>
+                <para style="P9">a</para>
+                <para style="P13">
+                  <font color="white"> </font>
+                </para>
+                <para style="P14">PT. <font face="Helvetica">DOMPET PEDULI UMMAT DARUTTAUHID</font></para>
+                <para style="P14">Jl. <font face="Helvetica">Geger Kalong Girang </font>No. <font face="Helvetica">27 </font>Bandung</para>
+                <para style="P10">a</para>
+                <para style="P15">SLIP UPAH </para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="476.0" style="Table5">
+            <tr>
+              <td>
+                <para style="P9">aaaa</para>
+              </td>
+            </tr>
+          </blockTable>
+          <para style="Table_20_Contents">
+            <font color="white"> </font>
+          </para>
+          <blockTable colWidths="152.0,13.0,302.0" style="Table3">
+            <tr>
+              <td>
+                <para style="P5">N<font face="Helvetica">IK</font></para>
+              </td>
+              <td>
+                <para style="P17">: </para>
+              </td>
+              <td>
+                <para style="P17">[[ payslip.employee_id.nik ]]</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P5">Nama</para>
+              </td>
+              <td>
+                <para style="P17">:</para>
+              </td>
+              <td>
+                <para style="P17">[[ payslip.employee_id.name ]]</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P5">Jabatan</para>
+              </td>
+              <td>
+                <para style="P17">:</para>
+              </td>
+              <td>
+                <para style="P17">[[ payslip.employee_id.job_id.name ]]</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P5">Periode Pengupahan</para>
+              </td>
+              <td>
+                <para style="P17">:</para>
+              </td>
+              <td>
+                <para style="P17">[[ payslip.date_from ]] - [[ payslip.date_to ]]</para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="461.0" style="Table4">
+            <tr>
+              <td>
+                <para style="P9">aaaaaaaaaaaaaaaa</para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="135.0,6.0,98.0,10.0,107.0,7.0,99.0" style="Table6">
+            <tr>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P5">PENDAPATAN</para>
+              </td>
+              <td>
+                <para style="P8">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P8">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P1">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P5">POTONGAN</para>
+              </td>
+              <td>
+                <para style="P17">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P17">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P5">Upah Pokok</para>
+              </td>
+              <td>
+                <para style="P8">:</para>
+              </td>
+              <td>
+                <para style="P8">Rp [[ formatLang(payslip.contract_id.wage) ]]</para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P5">Jumlah Hari Kerja</para>
+              </td>
+              <td>
+                <para style="P17">:</para>
+              </td>
+              <td>
+                <para style="P17">[[ formatLang(payslip.jum_harikerja1) ]] Hari Kerja</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P5">Tunjangan Jabatan</para>
+              </td>
+              <td>
+                <para style="P8">:</para>
+              </td>
+              <td>
+                <para style="P8">Rp [[ formatLang(payslip.tunj_jabatan) ]]</para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P5">Ketidakhadiran</para>
+              </td>
+              <td>
+                <para style="P17">:</para>
+              </td>
+              <td>
+                <para style="P17">
+                  <font face="Helvetica">Rp.</font>
+                  <font face="Helvetica">[[ formatLang(payslip.tidakhadir) ]]</font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P5">Tunjangan U. Makan</para>
+              </td>
+              <td>
+                <para style="P8">:</para>
+              </td>
+              <td>
+                <para style="P8">Rp [[ formatLang(payslip.tunj_makan) ]]</para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P7">Potongan DPU</para>
+              </td>
+              <td>
+                <para style="P17">:</para>
+              </td>
+              <td>
+                <para style="P17"><font face="Helvetica">Rp.</font>[[ formatLang(payroll.pot_dpu) ]]</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P5">Tunjangan U. Transport</para>
+              </td>
+              <td>
+                <para style="P8">:</para>
+              </td>
+              <td>
+                <para style="P8">Rp [[ formatLang(payslip.tunj_transport) ]]</para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P5">Cicilan</para>
+              </td>
+              <td>
+                <para style="P17">:</para>
+              </td>
+              <td>
+                <para style="P17"><font face="Helvetica">Rp.</font>[[ formatLang(payslip.cicilan) ]]</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P7">Lembur</para>
+              </td>
+              <td>
+                <para style="P8">:</para>
+              </td>
+              <td>
+                <para style="P8">Rp [[ formatLang(payslip.lembur) ]]</para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P8">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P17">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P17">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P7">Tunjangan Istri</para>
+              </td>
+              <td>
+                <para style="P8">:</para>
+              </td>
+              <td>
+                <para style="P8">Rp [[ formatLang(payslip.tunj_istri) ]]</para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P16">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P16">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P7">Tunjangan anak</para>
+              </td>
+              <td>
+                <para style="P8">:</para>
+              </td>
+              <td>
+                <para style="P8">Rp [[ formatLang(payroll.tunj_anak) ]]</para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P16">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P16">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P5">Catatan</para>
+              </td>
+              <td>
+                <para style="P8">:</para>
+              </td>
+              <td>
+                <para style="P8">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P16">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P16">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="140.0,16.0,41.0,68.0,68.0,50.0,78.0" style="Table7">
+            <tr>
+              <td>
+                <para style="P1">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P12">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="462.0" style="Table8">
+            <tr>
+              <td>
+                <para style="Table_20_Contents">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="142.0,11.0,101.0,6.0,99.0,11.0,91.0" style="Table9">
+            <tr>
+              <td>
+                <para style="P5">Total Pendapatan</para>
+              </td>
+              <td>
+                <para style="P5">:</para>
+              </td>
+              <td>
+                <para style="P5">Rp [[ formatLang(payslip.total_tunjangan) ]]</para>
+              </td>
+              <td>
+                <para style="P5">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P5">Total Potongan</para>
+              </td>
+              <td>
+                <para style="P18">:</para>
+              </td>
+              <td>
+                <para style="P18">Rp [[ formatLang(payslip.total_potongan) ]]</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P6">Total Penerimaan</para>
+              </td>
+              <td>
+                <para style="P5">:</para>
+              </td>
+              <td>
+                <para style="P5">Rp [[ formatLang(payslip.net) ]]</para>
+              </td>
+              <td>
+                <para style="P5">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P5">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P18">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P18">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P5">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P5">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P5">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P5">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P5">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P17">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P17">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="167.0,146.0,139.0" style="Table11">
+            <tr>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P3">Bandung, [[ payslip.date_to ]]</para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P3">Dibuat Oleh,</para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P3">Diterima Oleh,</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P11">A</para>
+                <para style="P11">a</para>
+                <para style="P11">a</para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P4">Ratna Wahyu</para>
+                <para style="P3">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P3">[[ payslip.employee_id.name ]]</para>
+              </td>
+            </tr>
+          </blockTable>
+          <para style="Table_20_Contents">
+            <font color="white"> </font>
+          </para>
+        </td>
+      </tr>
+    </blockTable>
+    <para style="Standard">[[ repeatIn(objects,'payslip') ]]</para>
+  </story>
+</document>
